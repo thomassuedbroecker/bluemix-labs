@@ -286,6 +286,34 @@ Now we need to add subnodes to determine the appropriate response when the user 
 
 You may want to embed this dialog into a web app. This step shows you how to do so using an existing application available in the GitHub repo [Watson simple conversation](https://github.com/watson-developer-cloud/conversation-simple)
 
+1. Use GitHub to clone the repository locally from your terminal using the command
+
+  ```
+  git clone https://github.com/watson-developer-cloud/conversation-simple
+  ```
+ or [download the .zip file](https://github.com/watson-developer-cloud/conversation-simple/archive/master.zip) of the repository and extract the files.
+
+1. Change into the newly created directory with ```cd conversation-simple```.
+
+1. Copy the `.env.example` file to a new file named `.env`.
+
+1. On the Bluemix dashboard, click on your conversation service and click the tab `Service Credentials`. Select `View Credentials` on the first service key and copy the username and password into your `.env` file: Without the quotation marks, paste the `password` and `username` values into the `CONVERSATION_PASSWORD` and `CONVERSATION_USERNAME` variables in the `.env` file.
+
+1. Open the Conversation Service instance by clicking `Launch tool`. If you didn't close the conversation tool, click `Back to workspaces`.
+
+1. Click the actions icon in the upper-right corner of the workspace tile, and then select **View details**.
+
+    ![](./images/conversation-workspace-id.png)
+
+1. Click the ![Copy](./images/copy_icon.png) icon to copy the workspace ID to the clipboard.
+
+1. On the local system, paste the workspace ID into the WORKSPACE_ID variable in the `.env` file. Save and close the file.
+
+
+
+
+
+
 1. In the readme file of this repo, navigate to the ```Deploy the App``` section, click on the button ![](../../images/deploy2bluemix.png) and follow the instructions to step 4.
 
 1. A simple conversation app have been deployed to your space. By clicking the button <img src="../../images/viewapp.png" width="90" height="30"/> you open the webpage with you conversation. However, this app is not yet linked to your own conversation workspace.
