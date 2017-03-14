@@ -1,8 +1,6 @@
-![](./images/conversation_icon_64x64.png)
+![](./images/conversation_icon_new.png)
 
 # Introduction
-
------TEST------
 
 With the Watson Conversation service you can create virtual agents and bots that combine machine learning, natural language understanding, and integrated dialog tools to provide automated customer engagements.
 
@@ -153,7 +151,7 @@ First we need to create a starting node for the dialog:
 
 1. Click **Create**. The dialog is created with a single root node:
 
-  ![](./images/dialog-node.JPG)
+  ![](./images/dialog-node-new.png)
 
 1. Specify the condition and response for the starting node of the conversation:
 
@@ -167,7 +165,7 @@ First we need to create a starting node for the dialog:
 
 1. Test the conversation:
 
-  1. Click the Try it out ![](./images/dialog-try.png) icon. In the chat pane, you should see the response (```Welcome to the car demo```) displayed automatically.
+  1. Click the Try it out ![](./images/dialog-try-new.png) icon. In the chat pane, you should see the response (```Welcome to the car demo```) displayed automatically.
 
   1. Type any input and press Enter. Because you have not yet defined any other nodes, you should see the response (```I'm sorry, I don't understand. Please try again.```)
 
@@ -185,11 +183,11 @@ Now we can create dialog branches that handle the defined intents.
 
   1. In the **Enter a response...** field, specify ```Hi! What can I do for you?```.
 
-  ![](./images/dialog-greeting.png)
+  ![](./images/dialog-greeting-new.png)
 
 1. Test the dialog:
 
-  1. Click the ![](./images/dialog-try.png) icon to open the chat pane.
+  1. Click the ![](./images/dialog-try-new.png) icon to open the chat pane.
 
   1. Type ```Hello``` and press Enter. The output shows that the #greeting intent is recognized, and the appropriate response appears.
 
@@ -213,7 +211,7 @@ The #turn_on intent requires additional processing, because the dialog needs to 
 
   1. Click the @appliance node and then click **Go to condition**. The **Jump to...** link indicates that if the #turn_on node evaluates as true, the dialog flow should pass to the @appliance node without waiting for additional user input. This is necessary because we want the @appliance node to continue evaluating the user's original input rather than waiting for new input.
 
-  ![](./images/tutorial_dialog3.png)
+  ![](./images/tutorial_dialog3-new.png)
 
 1. Now add a peer subnode that will be triggered if the user input did not specify a valid appliance:
 
@@ -237,7 +235,7 @@ Now we need to add subnodes to determine the appropriate response when the user 
 
   1. Click the @appliance:music node and then click **Go to condition**. The **Jump to...** link indicates that if the @appliance node evaluates as true, the dialog flow should pass to the @appliance:music node without waiting for additional user input.
 
-  ![](./images/tutorial_dialog4.png)
+  ![](./images/tutorial_dialog4-new.png)
 
   1. Click the **+** icon on the right side of the @appliance:music node to create a new subnode. This subnode will be evaluated only if @appliance is true, and only after the user has responded to the question about genre.
 
@@ -251,11 +249,11 @@ Now we need to add subnodes to determine the appropriate response when the user 
 
   1. In the **Enter a response...** field, type ```I'm sorry, I don't understand. I can play classical, rhythm and blues, or rock music.```
 
-  ![](./images/tutorial_dialog5.png)
+  ![](./images/tutorial_dialog5-new.png)
 
 1. Test the dialog:
 
-  1. Click the ![](./images/dialog-try.png) icon to open the chat pane. Click **Clear** to start a new conversation.
+  1. Click the ![](./images/dialog-try-new.png) icon to open the chat pane. Click **Clear** to start a new conversation.
 
   1. Type ```Play music```. The bot recognizes the #turn_on intent and the @appliance:music entity, and it responds by asking you for a musical genre.
 
@@ -273,7 +271,7 @@ Now we need to add subnodes to determine the appropriate response when the user 
 
 1. Test the dialog:
 
-  1. Click the ![](./images/dialog-try.png)  icon to open the chat pane.
+  1. Click the ![](./images/dialog-try-new.png)  icon to open the chat pane.
 
   1. Type ```lights on```. The bot recognizes the #turn_on intent and the @appliance:headlights entity, and it responds with ```OK, turning on the headlights.```
 
@@ -288,35 +286,87 @@ Now we need to add subnodes to determine the appropriate response when the user 
 
 You may want to embed this dialog into a web app. This step shows you how to do so using an existing application available in the GitHub repo [Watson simple conversation](https://github.com/watson-developer-cloud/conversation-simple)
 
-1. In the readme file of this repo, navigate to the ```Deploy the App``` section, click on the button ![](../../images/deploy2bluemix.png) and follow the instructions to step 4.
+## Deploy to Bluemix
 
-1. A simple conversation app have been deployed to your space. By clicking the button <img src="../../images/viewapp.png" width="90" height="30"/> you open the webpage with you conversation. However, this app is not yet linked to your own conversation workspace.
+1. Use GitHub to clone the repository locally from your terminal using the command
 
-1. The Deploy to Bluemix also created a new instance of Conversation service called ```conversation-service```. We could export the dialog in JSON format from the previous service and import it in this new service. Let's make it simple, and just use the service created in Step #1 which already contains the dialog. To do so, go to the Connections tab, unbind the existing service ```conversation-service``` and click ```Connect Existing```to attach the service provisioned in Step #1.
+    ```
+    git clone https://github.com/watson-developer-cloud/conversation-simple
+    ```
+    or [download the .zip file](https://github.com/watson-developer-cloud/conversation-simple/archive/master.zip) of the repository and extract the files.
 
-1. Accept to Restage the application, so the service is correctly bound to the application.
+1. Change into the newly created directory with ```cd conversation-simple```.
 
-1. Return to the conversation service you provisionned in Step 1, and click the ```Launch Tool``` button. You are now on the workspace creation page.
+1. Copy the `.env.example` file to a new file named `.env`.
 
-1. Click on the three dots button in the top right corner of your car tutorial workspace and select ```View details```.
+1. On the Bluemix dashboard, click on your conversation service and click the tab `Service Credentials`. Select `View Credentials` on the first service key and copy the username and password into your `.env` file: Without the quotation marks, paste the `password` and `username` values into the `CONVERSATION_PASSWORD` and `CONVERSATION_USERNAME` variables in the `.env` file.
 
-      <img src="./images/dialog-workspace.png" width="385" height="205"/>
+1. Open the Conversation Service instance by clicking `Launch tool`. If you didn't close the conversation tool, click `Back to workspaces`.
 
-1. Copy the value of the WORKSPACE ID. You will need this value to link your workspace to the application.
+1. Click the actions icon in the upper-right corner of the workspace tile, and then select **View details**.
 
-  <img src="./images/dialog-details-352x198.png" width="352" height="198"/>
+    ![](./images/conversation-workspace-id.png)
 
-1. Return to your Dashboad, select the app you created. Click the tab ```Runtime``` and select ```Environment Variables```.
+1. Click the ![Copy](./images/copy_icon.png) icon to copy the workspace ID to the clipboard.
 
-  <img src="./images/app-envvars-537x163.png" width="537" height="163"/>
+1. On the local system, paste the workspace ID into the WORKSPACE_ID variable in the `.env` file. Save and close the file.
 
-1. Scroll down to the section ```User Defined``` and add the following variable WORKSPACE_ID and copy the value of your workspace ID into the value section.
+1. Connect to Bluemix with the Cloud Foundry command-line tool:
+   ```
+   cf login
+   ```
+   When prompted, enter the email and password of your bluemix account.
 
-  <img src="./images/env-userdefined-627x208.png" width="627" height="208"/>
+1. Open the file `manifest.yml` in the local directory `conversation-simple`.
+    * Under `applications`, change the `name` to something unique, like `conversation-simple-myapp-[yourName]`.
+    * Under `applications-services`, change the service name to the name of your conversation service instance. To quickly check the name of your service, use the `cf services` command to list all services you have created in your bluemix space.
 
-1. Click ```View app```. This should take you to a web page where you can chat with your application.
+    The following example shows a modified `manifest.yml` file:
 
-Note: If you still get the message "The app has not been configured with a WORKSPACE_ID environment variable.", restart your application so the new environment variable is taken into account.
+    ```
+    ---
+    declared-services:
+     my-conversation-service:
+       label: conversation
+       plan: free
+    applications:
+    - name: conversation-simple-myapp-[yourName]
+     command: npm start
+     path: .
+     memory: 256M
+     instances: 1
+     services:
+     - my-conversation-service
+     env:
+       NPM_CONFIG_PRODUCTION: false
+    ```
+
+1. Push the app to Bluemix:
+
+    ```
+    cf push
+    ```
+    Access your app on Bluemix at the URL specified in the command output.
+
+## Test the app locally
+
+You can install and modifiy your app locally and then deploy the modified app to Bluemix.
+
+1. Make sure that you have created the `.env` file as described in previously **Deploy to Bluemix**.
+
+1. Install the demo app package into the local Node.js runtime environment:
+
+    ```bash
+    npm install
+    ```
+
+1. Start the app:
+
+    ```bash
+    npm start
+    ```
+
+1. Point your browser to http://localhost:3000 to try out the app.
 
 
 # Resources
