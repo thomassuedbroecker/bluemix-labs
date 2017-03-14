@@ -286,6 +286,8 @@ Now we need to add subnodes to determine the appropriate response when the user 
 
 You may want to embed this dialog into a web app. This step shows you how to do so using an existing application available in the GitHub repo [Watson simple conversation](https://github.com/watson-developer-cloud/conversation-simple)
 
+## Deploy to Bluemix
+
 1. Use GitHub to clone the repository locally from your terminal using the command
 
   ```
@@ -341,12 +343,12 @@ You may want to embed this dialog into a web app. This step shows you how to do 
 
 1. Push the app to Bluemix:
 
-  ```
-  cf push
-  ```
-  Access your app on Bluemix at the URL specified in the command output.
+    ```
+    cf push
+    ```
+    Access your app on Bluemix at the URL specified in the command output.
 
-
+## Test the app locally
 
 
 
