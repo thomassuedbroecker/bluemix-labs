@@ -290,10 +290,10 @@ You may want to embed this dialog into a web app. This step shows you how to do 
 
 1. Use GitHub to clone the repository locally from your terminal using the command
 
-  ```
-  git clone https://github.com/watson-developer-cloud/conversation-simple
-  ```
-  or [download the .zip file](https://github.com/watson-developer-cloud/conversation-simple/archive/master.zip) of the repository and extract the files.
+    ```
+    git clone https://github.com/watson-developer-cloud/conversation-simple
+    ```
+    or [download the .zip file](https://github.com/watson-developer-cloud/conversation-simple/archive/master.zip) of the repository and extract the files.
 
 1. Change into the newly created directory with ```cd conversation-simple```.
 
@@ -350,6 +350,23 @@ You may want to embed this dialog into a web app. This step shows you how to do 
 
 ## Test the app locally
 
+You can install and modifiy your app locally and then deploy the modified app to Bluemix.
+
+1. Make sure that you have created the `.env` file as described in previously **Deploy to Bluemix**.
+
+1. Install the demo app package into the local Node.js runtime environment:
+
+    ```bash
+    npm install
+    ```
+
+1. Start the app:
+
+    ```bash
+    npm start
+    ```
+
+1. Point your browser to http://localhost:3000 to try out the app.
 
 
 # Resources
