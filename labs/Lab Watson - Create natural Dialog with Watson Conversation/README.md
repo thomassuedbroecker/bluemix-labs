@@ -1,4 +1,4 @@
-![](./images/conversation_icon_64x64.png)
+![](./images/conversation_icon_new.png)
 
 # Introduction
 
