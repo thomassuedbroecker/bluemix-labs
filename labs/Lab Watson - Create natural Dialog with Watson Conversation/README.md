@@ -319,10 +319,9 @@ You may want to embed this dialog into a web app. This step shows you how to do 
   * Under `applications`, change the `name` to something unique, like `conversation-simple-myapp-[yourName]`.
   * Under `applications-services`, change the service name to the name of your conversation service instance. To quickly check the name of your service, use the `cf services` command to list all services you have created in your bluemix space.
 
-
   The following example shows a modified `manifest.yml` file:
 
-  ```yml
+  ```
   ---
   declared-services:
    my-conversation-service:
@@ -340,7 +339,12 @@ You may want to embed this dialog into a web app. This step shows you how to do 
      NPM_CONFIG_PRODUCTION: false
   ```
 
-1. Something
+1. Push the app to Bluemix:
+
+  ```
+  cf push
+  ```
+  Access your app on Bluemix at the URL specified in the command output.
 
 
 
