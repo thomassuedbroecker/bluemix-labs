@@ -316,28 +316,28 @@ You may want to embed this dialog into a web app. This step shows you how to do 
    When prompted, enter the email and password of your bluemix account.
 
 1. Open the file `manifest.yml` in the local directory `conversation-simple`.
-  * Under `applications`, change the `name` to something unique, like `conversation-simple-myapp-[yourName]`.
-  * Under `applications-services`, change the service name to the name of your conversation service instance. To quickly check the name of your service, use the `cf services` command to list all services you have created in your bluemix space.
+    * Under `applications`, change the `name` to something unique, like `conversation-simple-myapp-[yourName]`.
+    * Under `applications-services`, change the service name to the name of your conversation service instance. To quickly check the name of your service, use the `cf services` command to list all services you have created in your bluemix space.
 
-  The following example shows a modified `manifest.yml` file:
+    The following example shows a modified `manifest.yml` file:
 
-  ```
-  ---
-  declared-services:
-   my-conversation-service:
-     label: conversation
-     plan: free
-  applications:
-  - name: conversation-simple-myapp-[yourName]
-   command: npm start
-   path: .
-   memory: 256M
-   instances: 1
-   services:
-   - my-conversation-service
-   env:
-     NPM_CONFIG_PRODUCTION: false
-  ```
+    ```
+    ---
+    declared-services:
+     my-conversation-service:
+       label: conversation
+       plan: free
+    applications:
+    - name: conversation-simple-myapp-[yourName]
+     command: npm start
+     path: .
+     memory: 256M
+     instances: 1
+     services:
+     - my-conversation-service
+     env:
+       NPM_CONFIG_PRODUCTION: false
+    ```
 
 1. Push the app to Bluemix:
 
