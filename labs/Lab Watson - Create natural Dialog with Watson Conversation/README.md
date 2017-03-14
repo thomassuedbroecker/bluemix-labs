@@ -2,8 +2,6 @@
 
 # Introduction
 
------TEST------
-
 With the Watson Conversation service you can create virtual agents and bots that combine machine learning, natural language understanding, and integrated dialog tools to provide automated customer engagements.
 
 The following image illustrates many uses for the Conversation service.
@@ -153,7 +151,7 @@ First we need to create a starting node for the dialog:
 
 1. Click **Create**. The dialog is created with a single root node:
 
-  ![](./images/dialog-node.JPG)
+  ![](./images/dialog-node-new.png)
 
 1. Specify the condition and response for the starting node of the conversation:
 
@@ -167,7 +165,7 @@ First we need to create a starting node for the dialog:
 
 1. Test the conversation:
 
-  1. Click the Try it out ![](./images/dialog-try.png) icon. In the chat pane, you should see the response (```Welcome to the car demo```) displayed automatically.
+  1. Click the Try it out ![](./images/dialog-try-new.png) icon. In the chat pane, you should see the response (```Welcome to the car demo```) displayed automatically.
 
   1. Type any input and press Enter. Because you have not yet defined any other nodes, you should see the response (```I'm sorry, I don't understand. Please try again.```)
 
@@ -185,11 +183,11 @@ Now we can create dialog branches that handle the defined intents.
 
   1. In the **Enter a response...** field, specify ```Hi! What can I do for you?```.
 
-  ![](./images/dialog-greeting.png)
+  ![](./images/dialog-greeting-new.png)
 
 1. Test the dialog:
 
-  1. Click the ![](./images/dialog-try.png) icon to open the chat pane.
+  1. Click the ![](./images/dialog-try-new.png) icon to open the chat pane.
 
   1. Type ```Hello``` and press Enter. The output shows that the #greeting intent is recognized, and the appropriate response appears.
 
@@ -213,7 +211,7 @@ The #turn_on intent requires additional processing, because the dialog needs to 
 
   1. Click the @appliance node and then click **Go to condition**. The **Jump to...** link indicates that if the #turn_on node evaluates as true, the dialog flow should pass to the @appliance node without waiting for additional user input. This is necessary because we want the @appliance node to continue evaluating the user's original input rather than waiting for new input.
 
-  ![](./images/tutorial_dialog3.png)
+  ![](./images/tutorial_dialog3-new.png)
 
 1. Now add a peer subnode that will be triggered if the user input did not specify a valid appliance:
 
@@ -237,7 +235,7 @@ Now we need to add subnodes to determine the appropriate response when the user 
 
   1. Click the @appliance:music node and then click **Go to condition**. The **Jump to...** link indicates that if the @appliance node evaluates as true, the dialog flow should pass to the @appliance:music node without waiting for additional user input.
 
-  ![](./images/tutorial_dialog4.png)
+  ![](./images/tutorial_dialog4-new.png)
 
   1. Click the **+** icon on the right side of the @appliance:music node to create a new subnode. This subnode will be evaluated only if @appliance is true, and only after the user has responded to the question about genre.
 
@@ -251,11 +249,11 @@ Now we need to add subnodes to determine the appropriate response when the user 
 
   1. In the **Enter a response...** field, type ```I'm sorry, I don't understand. I can play classical, rhythm and blues, or rock music.```
 
-  ![](./images/tutorial_dialog5.png)
+  ![](./images/tutorial_dialog5-new.png)
 
 1. Test the dialog:
 
-  1. Click the ![](./images/dialog-try.png) icon to open the chat pane. Click **Clear** to start a new conversation.
+  1. Click the ![](./images/dialog-try-new.png) icon to open the chat pane. Click **Clear** to start a new conversation.
 
   1. Type ```Play music```. The bot recognizes the #turn_on intent and the @appliance:music entity, and it responds by asking you for a musical genre.
 
@@ -273,7 +271,7 @@ Now we need to add subnodes to determine the appropriate response when the user 
 
 1. Test the dialog:
 
-  1. Click the ![](./images/dialog-try.png)  icon to open the chat pane.
+  1. Click the ![](./images/dialog-try-new.png)  icon to open the chat pane.
 
   1. Type ```lights on```. The bot recognizes the #turn_on intent and the @appliance:headlights entity, and it responds with ```OK, turning on the headlights.```
 
