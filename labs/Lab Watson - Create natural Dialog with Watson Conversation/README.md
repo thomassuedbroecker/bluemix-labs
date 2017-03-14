@@ -291,7 +291,7 @@ You may want to embed this dialog into a web app. This step shows you how to do 
   ```
   git clone https://github.com/watson-developer-cloud/conversation-simple
   ```
- or [download the .zip file](https://github.com/watson-developer-cloud/conversation-simple/archive/master.zip) of the repository and extract the files.
+  or [download the .zip file](https://github.com/watson-developer-cloud/conversation-simple/archive/master.zip) of the repository and extract the files.
 
 1. Change into the newly created directory with ```cd conversation-simple```.
 
@@ -309,40 +309,41 @@ You may want to embed this dialog into a web app. This step shows you how to do 
 
 1. On the local system, paste the workspace ID into the WORKSPACE_ID variable in the `.env` file. Save and close the file.
 
+1. Connect to Bluemix with the Cloud Foundry command-line tool:
+   ```
+   cf login
+   ```
+   When prompted, enter the email and password of your bluemix account.
+
+1. Open the file `manifest.yml` in the local directory `conversation-simple`.
+  * Under `applications`, change the `name` to something unique, like `conversation-simple-myapp-[yourName]`.
+  * Under `applications-services`, change the service name to the name of your conversation service instance. To quickly check the name of your service, use the `cf services` command to list all services you have created in your bluemix space.
+
+
+  The following example shows a modified `manifest.yml` file:
+
+  ```yml
+  ---
+  declared-services:
+   my-conversation-service:
+     label: conversation
+     plan: free
+  applications:
+  - name: conversation-simple-myapp-[yourName]
+   command: npm start
+   path: .
+   memory: 256M
+   instances: 1
+   services:
+   - my-conversation-service
+   env:
+     NPM_CONFIG_PRODUCTION: false
+  ```
+
+1. Something
 
 
 
-
-
-1. In the readme file of this repo, navigate to the ```Deploy the App``` section, click on the button ![](../../images/deploy2bluemix.png) and follow the instructions to step 4.
-
-1. A simple conversation app have been deployed to your space. By clicking the button <img src="../../images/viewapp.png" width="90" height="30"/> you open the webpage with you conversation. However, this app is not yet linked to your own conversation workspace.
-
-1. The Deploy to Bluemix also created a new instance of Conversation service called ```conversation-service```. We could export the dialog in JSON format from the previous service and import it in this new service. Let's make it simple, and just use the service created in Step #1 which already contains the dialog. To do so, go to the Connections tab, unbind the existing service ```conversation-service``` and click ```Connect Existing```to attach the service provisioned in Step #1.
-
-1. Accept to Restage the application, so the service is correctly bound to the application.
-
-1. Return to the conversation service you provisionned in Step 1, and click the ```Launch Tool``` button. You are now on the workspace creation page.
-
-1. Click on the three dots button in the top right corner of your car tutorial workspace and select ```View details```.
-
-      <img src="./images/dialog-workspace.png" width="385" height="205"/>
-
-1. Copy the value of the WORKSPACE ID. You will need this value to link your workspace to the application.
-
-  <img src="./images/dialog-details-352x198.png" width="352" height="198"/>
-
-1. Return to your Dashboad, select the app you created. Click the tab ```Runtime``` and select ```Environment Variables```.
-
-  <img src="./images/app-envvars-537x163.png" width="537" height="163"/>
-
-1. Scroll down to the section ```User Defined``` and add the following variable WORKSPACE_ID and copy the value of your workspace ID into the value section.
-
-  <img src="./images/env-userdefined-627x208.png" width="627" height="208"/>
-
-1. Click ```View app```. This should take you to a web page where you can chat with your application.
-
-Note: If you still get the message "The app has not been configured with a WORKSPACE_ID environment variable.", restart your application so the new environment variable is taken into account.
 
 
 # Resources
